@@ -1,0 +1,50 @@
+version: "3.1"
+
+services:
+  node:
+    build: docker/node
+    container_name: node
+    volumes:
+      - "./:/home/node/app:rw,consistent"
+    working_dir: "/home/node/app"
+    networks:
+      - proxy
+    ports:
+      - 127.0.0.1:1337:1337
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin
+    ports:
+      - "8001:80"
+    depends_on:
+      - mysql
+    networks:
+      - proxy
+    environment:
+      PMA_HOST: mysql
+
+  mysql:
+    image: mysql:5.7
+    working_dir: /application
+    volumes:
+      - .:/application
+      - ./docker/mysql/data:/var/lib/mysql
+    networks:
+      - proxy
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=blog
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+    # ports:
+    #   - "1082:3306"
+
+  # maildev:
+  #   image: djfarrelly/maildev
+  #   ports:
+  #     - "1025:25"
+  #     - "1080:80"
+networks:
+  proxy:
+    driver: bridge
