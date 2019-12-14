@@ -27,6 +27,6 @@
   "author": "kabaconde",
   "license": "",
   "engines": {
-    "node": "^10.16"
+    "node": "^12.13.1"
   }
 }
