@@ -9,6 +9,6 @@
  */
 
 module.exports.routes = {
-
-
+  'post /auth/login': 'UserController.login',
+  'get /auth/token': 'UserController.token',
 };

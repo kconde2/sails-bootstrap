@@ -5,13 +5,20 @@
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
+    "@sailshq/lodash": "^3.10.3",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.17.1",
     "sails": "^1.2.3",
+    "sails-db-migrate": "^1.5.0",
     "sails-hook-orm": "^2.1.1",
     "sails-hook-sockets": "^2.0.0",
-    "@sailshq/lodash": "^3.10.3"
+    "sails-mysql": "^1.0.1"
   },
   "devDependencies": {
-    "eslint": "5.16.0"
+    "eslint": "5.16.0",
+    "grunt": "1.0.4",
+    "sails-hook-grunt": "^4.0.0"
   },
   "scripts": {
     "start": "NODE_ENV=production node app.js",

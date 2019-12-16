@@ -34,7 +34,7 @@ services:
       - proxy
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=blog
+      - MYSQL_DATABASE=bookntalk
       - MYSQL_USER=user
       - MYSQL_PASSWORD=password
     # ports:
